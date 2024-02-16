@@ -1,0 +1,67 @@
+#jungle beat
+use_bpm 130
+
+3.times do
+  sample :vinyl_scratch,start: 0, finish: 0.5
+  sleep 1
+end
+
+sample :vinyl_scratch,start: 0.5, finish: 1
+
+sleep 1
+
+sample :vinyl_scratch
+
+sleep 1
+
+live_loop :start do
+  sample :bd_haus, amp: 0.7
+  sample :tabla_ghe6
+  sleep 1
+end
+
+sleep 4
+
+4.times do
+  sample :bd_klub ,amp: 5
+  sample :loop_safari, beat_stretch: 4, rate: 0.8,start: 0.1, finish: 0.2
+  sleep 1
+end
+
+sample :tabla_ghe7, amp: 1.5
+
+sleep 1
+
+
+
+live_loop :sample do
+  sample :bd_klub ,amp: 5
+  sample :loop_safari, beat_stretch: 4, rate: 0.8
+  sample :loop_tabla, start: 0, finish: 0.1
+  sleep 4
+end
+
+
+live_loop :beat do
+  use_synth :beep
+  play :c3, beat_stretch: 4
+  sample :drum_tom_hi_hard, amp: 0.5
+  sleep 0.5
+  play :e3, beat_stretch: 4
+  sleep 0.5
+  play :g2
+  sample :drum_tom_hi_hard, amp: 0.5
+  sleep 0.5
+  play :b3
+  sleep 0.5
+  play :c3
+  sleep 0.5
+  play :b2
+  sample :drum_tom_hi_hard, amp: 0.5
+  sleep 0.5
+  play :g3
+  sleep 0.5
+  play :e2
+  sample :drum_tom_hi_hard, amp: 0.5
+  sleep 0.5
+end
