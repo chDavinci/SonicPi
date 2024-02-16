@@ -90,7 +90,16 @@ live_loop:background_notes do
     sample :hat_gump
     sleep 1
   end
+  3.times do
+    sample :vinyl_scratch,start: 0, finish: 0.5
+    sleep 1
+  end
   
+  sample :vinyl_scratch,start: 0.5, finish: 1
+  
+  sleep 1
+  
+  sample :vinyl_scratch
   stop
 end
 # Measure 1
