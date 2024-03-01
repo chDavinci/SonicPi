@@ -1,67 +1,65 @@
-#jungle beat
-use_bpm 130
+#https://www.youtube.com/watch?v=hcnNvy_svTE
+#https://www.youtube.com/watch?v=hcnNvy_svTE
+#https://www.youtube.com/watch?v=dFTk0zEPkEU
+#https://www.youtube.com/watch?v=PGzNZP28scg
 
-3.times do
-  sample :vinyl_scratch,start: 0, finish: 0.5
-  sleep 1
+
+beat = "C:/Users/cristian_hutchings/Downloads/LoveMeorLeaveMe.mp3"
+weakness = "C:/Users/cristian_hutchings/Downloads/BLOOD. [vocals]_[cut_15sec].mp3"
+shot = "C:/Users/cristian_hutchings/Downloads/shot.mp3"
+die = "C:/Users/cristian_hutchings/Downloads/liveordie.mp3"
+
+
+define :fourxb do
+  sample beat, rate: 1.25, start: 0.1149, finish: 0.1324, amp: 0.75
 end
 
-sample :vinyl_scratch,start: 0.5, finish: 1
+sample weakness, amp: 0.75
 
-sleep 1
+sleep 14
 
-sample :vinyl_scratch
+live_loop :in do
+  4.times do
+    fourxb
+    sleep 3
+  end
+  sample beat, rate: 1.25, start: 0.1149, finish: 0.247, amp: 1.25
+  sleep 25
+  sample die
+  sleep 7.632
+  sample shot, rate: -1, amp: 0.75
+  stop
+end
+sleep 47.632
+use_bpm 40
 
-sleep 1
-
-live_loop :start do
-  sample :bd_haus, amp: 0.7
-  sample :tabla_ghe6
-  sleep 1
+live_loop :kick  do
+  20.times do with_fx :ping_pong do
+      sample :drum_bass_hard
+      sleep 1
+    end
+  end
+  stop
+end
+sleep 2
+live_loop :snare do
+  4.times do with_fx :ping_pong do
+      sleep 1
+      sample :drum_snare_hard
+      sleep 2
+      sample :drum_snare_hard
+      sleep 1
+    end
+  end
+  stop
 end
 
 sleep 4
-
-4.times do
-  sample :bd_klub ,amp: 5
-  sample :loop_safari, beat_stretch: 4, rate: 0.8,start: 0.1, finish: 0.2
-  sleep 1
-end
-
-sample :tabla_ghe7, amp: 1.5
-
-sleep 1
-
-
-
-live_loop :sample do
-  sample :bd_klub ,amp: 5
-  sample :loop_safari, beat_stretch: 4, rate: 0.8
-  sample :loop_tabla, start: 0, finish: 0.1
-  sleep 4
-end
-
-
-live_loop :beat do
-  use_synth :beep
-  play :c3, beat_stretch: 4
-  sample :drum_tom_hi_hard, amp: 0.5
-  sleep 0.5
-  play :e3, beat_stretch: 4
-  sleep 0.5
-  play :g2
-  sample :drum_tom_hi_hard, amp: 0.5
-  sleep 0.5
-  play :b3
-  sleep 0.5
-  play :c3
-  sleep 0.5
-  play :b2
-  sample :drum_tom_hi_hard, amp: 0.5
-  sleep 0.5
-  play :g3
-  sleep 0.5
-  play :e2
-  sample :drum_tom_hi_hard, amp: 0.5
-  sleep 0.5
+live_loop :hihat do
+  16.times do with_fx :ping_pong do
+      sample :drum_cymbal_closed
+      sleep 0.5
+    end
+  end
+  stop
 end
